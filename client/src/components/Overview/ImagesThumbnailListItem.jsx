@@ -1,7 +1,7 @@
 
 var ImagesThumbnailListItem = function ( {photo, index, handlePhotoIndexChange} ) {
   return (
-    <img className="thumbnail" src={photo.thumbnail_url} onClick={() => {
+    <img className="OVThumbnail" src={photo.thumbnail_url} onClick={() => {
         handlePhotoIndexChange(index);
       }
     }></img>
