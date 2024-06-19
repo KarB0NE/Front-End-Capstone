@@ -49,11 +49,10 @@ const QaList = ({itemQsAndAs , searchTerm, handleQuestionHelpfulClick, handleAns
       setIsModalOpen(false);
   };
 
-  const handleAddAnswerClick = (questionId) => {
+  const handleAddClick = ({questionId=null}) => {
     setIsModalOpen(true);
     setSelectedQuestionId(questionId);
   };
-
 
   return (
   <>
@@ -61,7 +60,7 @@ const QaList = ({itemQsAndAs , searchTerm, handleQuestionHelpfulClick, handleAns
     <ul>
      {questionsToShow.map(q => (
           <li key={q.question_id}>
-            <QAndAs q={q} handleQuestionHelpfulClick={handleQuestionHelpfulClick} handleAnswerHelpfulClick={handleAnswerHelpfulClick} handleAddAnswerClick={handleAddAnswerClick} isModalOpen={isModalOpen} />
+            <QAndAs q={q} handleQuestionHelpfulClick={handleQuestionHelpfulClick} handleAnswerHelpfulClick={handleAnswerHelpfulClick} handleAddAnswerClick={handleAddClick} isModalOpen={isModalOpen} />
           </li>
         ))}
     </ul>
@@ -69,7 +68,7 @@ const QaList = ({itemQsAndAs , searchTerm, handleQuestionHelpfulClick, handleAns
     <button className="boxButton m-1 border border-black p-2 bg-white" onClick={toggleQuestions}>
       {showAllQuestions ? 'HIDE ANSWERED QUESTIONS' : 'MORE ANSWERED QUESTIONS'}
     </button>
-    <button className="boxButton m-1 border border-black p-2 bg-white"> ADD A QUESTION + </button>
+    <button className="boxButton m-1 border border-black p-2 bg-white" onClick={handleAddClick}> ADD A QUESTION + </button>
     </span>
     {isModalOpen &&
         ReactDOM.createPortal( // Use createPortal to render the modal outside the main app

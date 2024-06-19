@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import LightBox from "./LightBox.jsx";
 
-const QandAs = ({q, handleQuestionHelpfulClick, handleAnswerHelpfulClick, handleAddAnswerClick, isModalOpen}) => {
+const QAndAs = ({q, handleQuestionHelpfulClick, handleAnswerHelpfulClick, handleAddAnswerClick, isModalOpen}) => {
   const [showAllAnswers, setShowAllAnswers] = useState(false);
   const [clickedQuestionHelpful, setClickedQuestionHelpful] = useState(false);
   const [clickedAnswerHelpful, setClickedAnswerHelpful] = useState({});
@@ -51,7 +51,7 @@ const QandAs = ({q, handleQuestionHelpfulClick, handleAnswerHelpfulClick, handle
         </button>
         <p className="pl-1 pr-2">{`(${q.question_helpfulness})`}</p> |
         <button className="underlineButton pl-2 underline underline-offset-auto"
-          onClick={() => handleAddAnswerClick(q.question_id)}
+          onClick={() => handleAddAnswerClick({questionId: q.question_id})}
         >
           Add Answer
         </button>
@@ -109,4 +109,4 @@ const QandAs = ({q, handleQuestionHelpfulClick, handleAnswerHelpfulClick, handle
   );
 };
 
-export default QandAs
+export default QAndAs

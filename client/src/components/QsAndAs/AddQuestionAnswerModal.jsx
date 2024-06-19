@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../config.js';
 
-const AddQuestionAnswerModal = ({ productId, onClose, onSubmit, isQuestion = true }) => {
+const AddQuestionAnswerModal = ({ productId, onClose, onSubmit, question_id, isQuestion = true }) => {
   const [formData, setFormData] = useState({
     body: '',
     name: '',
@@ -19,7 +19,7 @@ const AddQuestionAnswerModal = ({ productId, onClose, onSubmit, isQuestion = tru
     event.preventDefault();
     const endpoint = isQuestion ? 'questions' : `questions/${question_id}/answers`;
 
-    axios.post(`${API_URL}/qa/${endpoint}`, formData)
+    axios.post(`${API_URL}/${endpoint}`, formData)
       .then(response => {
         onSubmit(response.data);
       })
