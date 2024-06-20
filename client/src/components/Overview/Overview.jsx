@@ -22,7 +22,7 @@ function Overview( {id} ) {
       setProduct(results.data);
     })
     .catch((err) => {
-      console.log(err);
+      setProduct({});
     });
   }, [])
   React.useEffect(() => {
@@ -34,7 +34,7 @@ function Overview( {id} ) {
       setReviewMetadata(results.data);
     })
     .catch((err) => {
-      console.log(err);
+      setReviewMetadata({});
     })
   }, []);
   React.useEffect(() => {
@@ -46,7 +46,7 @@ function Overview( {id} ) {
       setStyle(results.data);
     })
     .catch((err) => {
-      console.log(err);
+      setStyle({});
     });
   }, []);
   if (reviewMetadata && style && product){
