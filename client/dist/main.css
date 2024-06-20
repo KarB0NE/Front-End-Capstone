@@ -606,6 +606,9 @@ video {
 .flex {
   display: flex;
 }
+.contents {
+  display: contents;
+}
 .h-20 {
   height: 5rem;
 }
