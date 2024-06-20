@@ -4,7 +4,7 @@ import QsAndAs from './QsAndAs/QsAndAs.jsx'
 var App = function () {
   return (
     <>
-    <Overview id="344"/>
+    <Overview id="123"/>
     <QsAndAs product_id="40560"/>
     </>
   )
