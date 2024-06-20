@@ -13,7 +13,7 @@ const QsAndAs = ({product_id}) =>  {
 
   const fetchQuestions = () => {
   axios.get(`${API_URL}/questions`, {
-    params: {product_id}
+    params: {product_id, count: 20}
   })
     .then(res => {
       setItemQsAndAs(res.data);
@@ -44,7 +44,6 @@ const handleQuestionHelpfulClick = (question_id) => {
 };
 
 const handleAnswerHelpfulClick = (question_id, answerId) => {
-  console.log(answerId);
   axios.put(`${API_URL}/answers/${answerId}/helpful`)
     .then(() => {
       fetchQuestions();
@@ -54,6 +53,15 @@ const handleAnswerHelpfulClick = (question_id, answerId) => {
     });
 };
 
+const handleAnswerReport = (questionId, answerId) => {
+ axios.put(`${API_URL}/answers/${answerId}/report`)
+  .then(() => {
+    fetchQuestions();
+  })
+  .catch(error => {
+    console.error('Error reporting answer:', error);
+  });
+};
 
 return (
 <>
@@ -67,7 +75,15 @@ return (
       ) : error ? (
         <p>{error}</p> // Show error message if there was an error
       ) : (
-  <QaList itemQsAndAs={itemQsAndAs} searchTerm={searchTerm} handleQuestionHelpfulClick={handleQuestionHelpfulClick} handleAnswerHelpfulClick={handleAnswerHelpfulClick} />
+  <QaList
+    itemQsAndAs={itemQsAndAs}
+    searchTerm={searchTerm}
+    handleQuestionHelpfulClick={handleQuestionHelpfulClick}
+    handleAnswerHelpfulClick={handleAnswerHelpfulClick}
+    handleAnswerReport={handleAnswerReport}
+    setItemQsAndAs={setItemQsAndAs}
+    fetchQuestions={fetchQuestions}
+    />
       )}
       </div>
   </div>

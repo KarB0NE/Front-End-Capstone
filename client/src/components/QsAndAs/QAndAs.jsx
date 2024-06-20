@@ -68,7 +68,7 @@ const QAndAs = ({q, handleQuestionHelpfulClick, handleAnswerHelpfulClick, handle
             <p>{answer.body}</p>
           {/* check if photos array length is greater than zero */}
           {/* Lightbox */}
-          {answer.photos.length > 0 && (
+          {answer.photos?.length > 0 && (
                 <div className="flex flex-row flex-wrap my-2">
                   {answer.photos.map((photo, index) => (
                     <LightBox

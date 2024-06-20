@@ -8,8 +8,8 @@ const apiInstance = axios.create({
 // Get questions for a product
 const getQuestions = async (req, res) => {
     try {
-        const { product_id } = req.query;
-        const response = await apiInstance.get(`qa/questions?product_id=${product_id}`);
+        const { product_id, count } = req.query;
+        const response = await apiInstance.get(`qa/questions?product_id=${product_id}&count=${count}`);
         res.json(response.data);
         console.log(response.data);
     } catch (error) {
@@ -30,15 +30,26 @@ const getAnswers = async (req, res) => {
     }
 };
 
-// POST a new question or answer
-const postQuestionOrAnswer = async (req, res) => {
+// // POST a new question
+const postQuestion = async (req, res) => {
     try {
-        const { endpoint } = req.params;
-        const response = await apiInstance.post(`qa/${endpoint}`, req.body);
+        const response = await apiInstance.post('qa/questions', req.body);
         res.status(201).json(response.data);
     } catch (error) {
-        console.error(`Error posting ${endpoint}:`, error);
-        res.status(500).json({ error: `Failed to post ${endpoint}` });
+        console.error('Error posting question:', error);
+        res.status(500).json({ error: 'Failed to post question' });
+    }
+};
+
+// POST an answer to a question
+const postAnswer = async (req, res) => {
+    try {
+        const { question_id } = req.params;
+        const response = await apiInstance.post(`qa/questions/${question_id}/answers`, req.body);
+        res.status(201).json(response.data);
+    } catch (error) {
+        console.error('Error posting answer:', error);
+        res.status(500).json({ error: 'Failed to post answer' });
     }
 };
 
@@ -69,7 +80,8 @@ const reportQuestionOrAnswer = async (req, res) => {
 module.exports = {
     getQuestions,
     getAnswers,
-    postQuestionOrAnswer,
+    postQuestion,
+    postAnswer,
     markHelpful,
     reportQuestionOrAnswer
 };

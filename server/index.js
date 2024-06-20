@@ -16,11 +16,13 @@ const instance = axios.create({
   "X-API-Key": process.env.X_API_KEY
 });
 
-app.get('/api/qa/questions', controllers.getQuestions);
+app.get('/api/qa/questions/', controllers.getQuestions);
 app.get('/api/qa/questions/:question_id/answers', controllers.getAnswers);
-app.post('/api/qa/:endpoint', controllers.postQuestionOrAnswer);
+app.post('/api/qa/questions', controllers.postQuestion);
+app.post('/api/qa/questions/:question_id/answers', controllers.postAnswer);
 app.put('/api/qa/:endpoint/:id/helpful', controllers.markHelpful);
 app.put('/api/qa/:endpoint/:id/report', controllers.reportQuestionOrAnswer);
+app.put('/api/qa/answers/:answer_id/report', controllers.reportQuestionOrAnswer)
 
 app.listen(process.env.PORT);
 console.log(`Server listening at http://localhost:${process.env.PORT}`);
