@@ -1,9 +1,9 @@
 import ImagesThumbnailList from './ImagesThumbnailList.jsx';
 import React from 'react';
 
-var Images = function ( {photoArray} ) {
+function Images ( {photoArray} ) {
   const [activePhotoIndex, setActivePhotoIndex] = React.useState(0);
-  var handlePhotoIndexChange = function (newIndex) {
+  const handlePhotoIndexChange = function (newIndex) {
     setActivePhotoIndex(newIndex);
   }
   return (

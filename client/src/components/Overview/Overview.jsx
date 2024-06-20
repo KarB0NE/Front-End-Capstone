@@ -4,9 +4,9 @@ import Description from './Description.jsx';
 import React from 'react';
 import axios from 'axios';
 
-var Overview = function ( {id} ) {
+function Overview( {id} ) {
   const [activeStyleIndex, setActiveStyleIndex] = React.useState(0);
-  var handleStyleChange = function (newIndex) {
+  const handleStyleChange = function (newIndex) {
     setActiveStyleIndex(newIndex);
   }
 

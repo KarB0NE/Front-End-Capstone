@@ -2,10 +2,10 @@ import InfoStyleItem from './InfoStyleItem.jsx';
 import React from 'react';
 import axios from 'axios';
 
-var InfoStyle = function ( {sku, styles, activeStyleIndex, handleStyleChange} ) {
+function InfoStyle ( {sku, styles, activeStyleIndex, handleStyleChange} ) {
   var styleIndex = -1;
   const [selectedSku, setSelectedSku] = React.useState(Object.keys(sku)[0]);
-  var handleSkuOnChange = function (newSku) {
+  const handleSkuOnChange = function (newSku) {
     setSelectedSku(newSku);
   }
   const onChange = function (event) {

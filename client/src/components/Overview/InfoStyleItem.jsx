@@ -1,5 +1,5 @@
 
-var InfoStyleItem = function ( {handleSkuOnChange, style, index, handleStyleChange} ) {
+function InfoStyleItem ( {handleSkuOnChange, style, index, handleStyleChange} ) {
   return (
     <img className="styleThumbnail" src={style.photos[0].thumbnail_url} onClick={() => {
       handleStyleChange(index);

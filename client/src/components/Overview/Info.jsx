@@ -2,7 +2,7 @@ import InfoRatings from './InfoRatings.jsx';
 import InfoNameplate from './InfoNameplate.jsx';
 import InfoStyle from './InfoStyle.jsx';
 
-var Info = function ( {product, reviewMetadata, styleArray, handleStyleChange, activeStyleIndex} ) {
+function Info ( {product, reviewMetadata, styleArray, handleStyleChange, activeStyleIndex} ) {
   return (
     <div className="info">
       <InfoRatings reviewMetadata={reviewMetadata} />
