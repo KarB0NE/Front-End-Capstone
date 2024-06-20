@@ -1,5 +1,7 @@
 require("dotenv").config();
+const controller = require('./overviewController');
 const axios = require('axios');
+const reviewRouter = require('./reviewRouter.js');
 
 const express = require("express");
 const path = require("path");
@@ -23,6 +25,13 @@ app.post('/api/qa/questions/:question_id/answers', controllers.postAnswer);
 app.put('/api/qa/:endpoint/:id/helpful', controllers.markHelpful);
 app.put('/api/qa/:endpoint/:id/report', controllers.reportQuestionOrAnswer);
 app.put('/api/qa/answers/:answer_id/report', controllers.reportQuestionOrAnswer)
+app.get('/products/*/styles', controller.getStyles);
+app.get('/products/*', controller.getProduct);
+app.get('/reviews/meta/*', controller.getReviewData);
+app.post('/cart', controller.postCart);
+
+app.use('/', reviewRouter);
+
 
 app.listen(process.env.PORT);
 console.log(`Server listening at http://localhost:${process.env.PORT}`);

@@ -603,11 +603,17 @@ video {
 .ml-auto {
   margin-left: auto;
 }
+.inline-block {
+  display: inline-block;
+}
 .flex {
   display: flex;
 }
 .contents {
   display: contents;
+}
+.hidden {
+  display: none;
 }
 .h-20 {
   height: 5rem;
