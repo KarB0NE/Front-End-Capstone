@@ -1,6 +1,6 @@
 import ImagesThumbnailListItem from './ImagesThumbnailListItem.jsx';
 
-var ImagesThumbnailList = function ( {photoArray, handlePhotoIndexChange} ) {
+function ImagesThumbnailList ( {photoArray, handlePhotoIndexChange} ) {
   var index = -1;
   return (
     <div className="imgThumbnailList">

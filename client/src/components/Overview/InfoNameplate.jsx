@@ -1,5 +1,5 @@
 
-var InfoNameplate = function ( {name, category, price} ) {
+function InfoNameplate ( {name, category, price} ) {
   return (
     <div className="infoName">
       <p className="category">{category}</p>

@@ -1,5 +1,5 @@
 
-var Description = function ( {slogan, description} ) {
+function Description ( {slogan, description} ) {
   return (
     <div>
       <h3>{slogan}</h3>

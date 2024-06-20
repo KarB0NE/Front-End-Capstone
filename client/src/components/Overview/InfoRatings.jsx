@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
 
-var InfoRatings = function ( {reviewMetadata} ) {
+function InfoRatings ( {reviewMetadata} ) {
   var average = 0;
   var counter = 0;
   for (var i = 1; i < 6; i++) {

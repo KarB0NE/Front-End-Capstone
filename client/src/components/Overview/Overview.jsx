@@ -4,9 +4,9 @@ import Description from './Description.jsx';
 import React from 'react';
 import axios from 'axios';
 
-var Overview = function ( {id} ) {
+function Overview( {id} ) {
   const [activeStyleIndex, setActiveStyleIndex] = React.useState(0);
-  var handleStyleChange = function (newIndex) {
+  const handleStyleChange = function (newIndex) {
     setActiveStyleIndex(newIndex);
   }
 
@@ -22,7 +22,7 @@ var Overview = function ( {id} ) {
       setProduct(results.data);
     })
     .catch((err) => {
-      console.log(err);
+      setProduct({});
     });
   }, [])
   React.useEffect(() => {
@@ -34,7 +34,7 @@ var Overview = function ( {id} ) {
       setReviewMetadata(results.data);
     })
     .catch((err) => {
-      console.log(err);
+      setReviewMetadata({});
     })
   }, []);
   React.useEffect(() => {
@@ -46,7 +46,7 @@ var Overview = function ( {id} ) {
       setStyle(results.data);
     })
     .catch((err) => {
-      console.log(err);
+      setStyle({});
     });
   }, []);
   if (reviewMetadata && style && product){
