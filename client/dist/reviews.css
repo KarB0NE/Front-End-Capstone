@@ -173,7 +173,14 @@
   margin-top: 20px;
 }
 /* Rating and Review widget */
+.reviews-widget {
+  display: flex;
+  justify-content: center;
+}
 .rating-and-reviews {
+  width: 50%;
+  justify-content: center;
+  min-width: 1000px;
   padding-top: 30px;
   padding-left:40px;
   padding-right: 40px;
@@ -214,7 +221,7 @@
   justify-content: space-between;
 }
 .star-number {
-  flex: 2;
+  flex: 4;
 }
 .ratio-bar {
   flex: 10;
@@ -224,7 +231,7 @@
 }
 .review-count{
   text-align: center;
-  flex: 1;
+  flex: 2;
 }
 /*product breakdown */
 .product-breakdown-container {

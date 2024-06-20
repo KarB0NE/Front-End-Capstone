@@ -6,7 +6,7 @@ import Characteristic from './Characteristic.jsx';
 
 const { useState, useEffect } = React;
 
-function AddReview({ product_id, created, closeAddReview }) {
+function AddReview({ product_id, closeAddReview }) {
   const [showModal, setShowModal] = useState(true);
   const [name, setName] = useState('');
   const [rating, setRating] = useState(null);
@@ -22,7 +22,7 @@ function AddReview({ product_id, created, closeAddReview }) {
   const [charsNameId, setCharsNameId] = useState([]);
 
   const getProduct = (id) => {
-    axios.get('/products/:product_id', { params: { pid: id } })
+    axios.get(`/products/${id}`)
       .then((result) => {
         setName(result.data.name);
       })
@@ -131,9 +131,7 @@ function AddReview({ product_id, created, closeAddReview }) {
   useEffect(() => {
     getProduct(product_id);
   }, []);
-  if (created) {
-    return null;
-  }
+
   return (
     <div className="add-review">
       <span className="close" onClick={clickClose}>&times;</span>
@@ -149,11 +147,11 @@ function AddReview({ product_id, created, closeAddReview }) {
         <div>
           <h3>Overall rating (mandatory)</h3>
           <div className="star-rating">
-            <p>
+            <div>
               {' '}
               <StarRate setStarRating={setStarRating} />
               {' '}
-            </p>
+            </div>
           </div>
 
         </div>

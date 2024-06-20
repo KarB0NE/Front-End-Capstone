@@ -14,6 +14,7 @@ function RatingAndReviews({ id }) {
   };
 
   return (
+    <div className="reviews-widget">
     <div className="rating-and-reviews">
       <h3>RATING & REVIEWS</h3>
       <div className="rating-reviews-container">
@@ -29,6 +30,7 @@ function RatingAndReviews({ id }) {
           <ReviewList id={id} starFilter={starFilter} />
         </div>
       </div>
+    </div>
     </div>
   );
 }
