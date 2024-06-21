@@ -4,6 +4,10 @@ body{
 }
 
 .overview{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  max-height: fit-content;
   width: 50%;
   min-width: 1000px;
   justify-content: center;
@@ -22,15 +26,20 @@ body{
   height: 500px;
   width: 500px;
   display: inline-block;
+  vertical-align: baseline;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .images{
-  display: inline-block;
+  display: flex;
   height: 520px;
   width: 630px;
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 3;
   background-color: lightgray;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .imgThumbnailList{
@@ -64,6 +73,8 @@ body{
 
 .info{
   display: inline-block;
+  grid-column: 4 / span 2;
+  grid-row: 2 / span 3;
   top: 50%;
   -ms-transform: translateY(-10%);
   transform: translateY(-10%);
@@ -131,4 +142,10 @@ body{
   width: 300px;
   font-size: 18px;
   background-color: white;
+}
+
+.sloganDescription{
+  grid-column: 2 / span 3;
+  grid-row: 4 / span 2;
+  margin-top: 25px;
 }
