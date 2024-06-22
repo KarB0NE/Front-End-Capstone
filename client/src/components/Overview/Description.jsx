@@ -1,7 +1,7 @@
 
 function Description ( {slogan, description} ) {
   return (
-    <div>
+    <div className="sloganDescription">
       <h3>{slogan}</h3>
       <p>{description}</p>
     </div>
